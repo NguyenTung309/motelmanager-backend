@@ -1,0 +1,30 @@
+<div class="auth-container">
+  <h2>Đăng ký</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <label for="username">Tên đăng nhập:</label>
+    <input id="username" type="text" formControlName="username" />
+    <div *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.invalid" class="error">
+      Vui lòng nhập tên đăng nhập.
+    </div>
+
+    <label for="password">Mật khẩu:</label>
+    <input id="password" type="password" formControlName="password" />
+    <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid" class="error">
+      Vui lòng nhập mật khẩu.
+    </div>
+
+    <label for="role">Loại tài khoản:</label>
+    <select id="role" formControlName="role">
+      <option value="student">Sinh viên</option>
+      <option value="owner">Chủ trọ</option>
+    </select>
+
+    <div *ngIf="error" class="error">{{ error }}</div>
+    <div *ngIf="success" class="success">{{ success }}</div>
+
+    <button type="submit" [disabled]="registerForm.invalid">Đăng ký</button>
+  </form>
+
+  <p>Đã có tài khoản? <a routerLink="/login">Đăng nhập</a></p>
+</div>

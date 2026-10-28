@@ -1,0 +1,150 @@
+.room-detail-page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 20px 48px;
+}
+
+.back-link {
+  margin-bottom: 20px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #92400e;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.status {
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  border-radius: 14px;
+}
+
+.status.loading {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.status.error {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+.detail-card {
+  padding: 24px;
+  border: 1px solid #eadbc8;
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at top right, rgba(251, 191, 36, 0.16), transparent 30%),
+    linear-gradient(180deg, #fffdf8, #ffffff);
+  box-shadow: 0 20px 48px rgba(102, 76, 50, 0.08);
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f1e4d4;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 12px;
+  font-weight: 700;
+  color: #9a3412;
+}
+
+.detail-header h1 {
+  margin: 0 0 10px;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.1;
+  color: #1f2937;
+}
+
+.address {
+  margin: 0;
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.price-box {
+  min-width: 220px;
+  align-self: flex-start;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.price-box span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.price-box strong {
+  font-size: 28px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.detail-item {
+  padding: 18px;
+  border: 1px solid #f1e5d8;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.detail-item.full {
+  grid-column: 1 / -1;
+}
+
+.label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9a3412;
+}
+
+.detail-item strong {
+  color: #111827;
+}
+
+.detail-item p {
+  margin: 0;
+  line-height: 1.8;
+  color: #4b5563;
+  white-space: pre-line;
+}
+
+@media (max-width: 720px) {
+  .room-detail-page {
+    padding: 24px 16px 40px;
+  }
+
+  .detail-header,
+  .detail-grid {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .price-box {
+    min-width: unset;
+  }
+}

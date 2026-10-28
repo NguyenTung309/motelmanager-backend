@@ -1,0 +1,27 @@
+<div class="hero">
+  <div class="content">
+    <h1>{{ appName }}</h1>
+    <p>{{ tagline }}</p>
+
+    <div class="welcome" *ngIf="role">
+      <div *ngIf="role === 'admin'">
+        <h2>Chào mừng Quản trị viên</h2>
+      </div>
+      <div *ngIf="role === 'owner'">
+        <h2>Chào mừng Chủ trọ</h2>
+      </div>
+      <div *ngIf="role === 'student'">
+        <h2>Chào mừng Người tìm trọ</h2>
+      </div>
+    </div>
+
+    <div class="actions" *ngIf="!isLoggedIn">
+      <a routerLink="/login" class="btn">Đăng nhập</a>
+      <a routerLink="/register" class="btn outline">Đăng ký</a>
+    </div>
+    
+    <div class="actions" *ngIf="isLoggedIn">
+      <a href="#" (click)="logout()" class="btn outline">Đăng xuất</a>
+    </div>
+  </div>
+</div>

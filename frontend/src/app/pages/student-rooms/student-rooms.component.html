@@ -1,0 +1,57 @@
+<section class="student-rooms-page">
+  <div class="hero">
+    <p class="eyebrow">Danh sach phong tro</p>
+    <h1>Tim tat ca phong cua cac chu tro</h1>
+    <p class="subtitle">
+      Sinh vien co the xem toan bo bai dang, loc nhanh theo dia chi va muc gia,
+      sau do bam vao tung phong de xem chi tiet.
+    </p>
+  </div>
+
+  <form class="search-panel" (ngSubmit)="search()">
+    <label class="field">
+      <span>Khu vuc</span>
+      <input [(ngModel)]="district" name="district" placeholder="Vi du: Cau Giay, Ha Noi" />
+    </label>
+
+    <label class="field">
+      <span>Gia tu</span>
+      <input [(ngModel)]="minPrice" name="minPrice" type="number" min="0" placeholder="1000000" />
+    </label>
+
+    <label class="field">
+      <span>Gia den</span>
+      <input [(ngModel)]="maxPrice" name="maxPrice" type="number" min="0" placeholder="5000000" />
+    </label>
+
+    <div class="actions">
+      <button type="submit" class="primary-btn">Tim phong</button>
+      <button type="button" class="secondary-btn" (click)="resetFilters()">Xem tat ca</button>
+    </div>
+  </form>
+
+  <div *ngIf="error" class="status error">{{ error }}</div>
+  <div *ngIf="loading" class="status loading">Dang tai danh sach phong...</div>
+
+  <div *ngIf="!loading && rooms.length > 0" class="results-header">
+    <span>{{ rooms.length }} phong dang hien thi</span>
+  </div>
+
+  <div *ngIf="!loading && rooms.length > 0" class="rooms-grid">
+    <article *ngFor="let room of rooms; trackBy: trackByRoomId" class="room-card">
+      <div class="room-price">{{ room.price | number }} VND</div>
+      <h2>{{ room.title }}</h2>
+      <p class="room-address">{{ room.address }}</p>
+      <p class="room-owner">Chu tro: {{ room.owner?.username || 'Chua cap nhat' }}</p>
+      <p class="room-description">{{ room.description || 'Chua co mo ta cho phong nay.' }}</p>
+
+      <button type="button" class="detail-btn" (click)="viewDetail(room.id)">
+        Xem chi tiet
+      </button>
+    </article>
+  </div>
+
+  <div *ngIf="!loading && rooms.length === 0 && !error" class="empty-state">
+    Khong co phong nao phu hop voi bo loc hien tai.
+  </div>
+</section>

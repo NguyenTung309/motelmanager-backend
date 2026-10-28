@@ -1,0 +1,38 @@
+<section class="room-detail-page">
+  <button type="button" class="back-link" (click)="goBack()">Quay lai danh sach phong</button>
+
+  <div *ngIf="loading" class="status loading">Dang tai thong tin phong...</div>
+  <div *ngIf="error" class="status error">{{ error }}</div>
+
+  <div *ngIf="room && !loading" class="detail-card">
+    <div class="detail-header">
+      <div>
+        <p class="eyebrow">Thong tin chi tiet</p>
+        <h1>{{ room.title }}</h1>
+        <p class="address">{{ room.address }}</p>
+      </div>
+
+      <div class="price-box">
+        <span>Gia phong</span>
+        <strong>{{ room.price | number }} VND</strong>
+      </div>
+    </div>
+
+    <div class="detail-grid">
+      <div class="detail-item">
+        <span class="label">Chu tro</span>
+        <strong>{{ room.owner?.username || 'Chua cap nhat' }}</strong>
+      </div>
+
+      <div class="detail-item">
+        <span class="label">Vai tro nguoi dang</span>
+        <strong>{{ room.owner?.role || 'owner' }}</strong>
+      </div>
+
+      <div class="detail-item full">
+        <span class="label">Mo ta</span>
+        <p>{{ room.description || 'Phong nay chua co mo ta chi tiet.' }}</p>
+      </div>
+    </div>
+  </div>
+</section>
