@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="title">Danh sách người dùng</div>
+
+  <div class="controls">
+    <div class="show-entries">
+      <label for="showEntries">Hiển thị</label>
+      <select id="showEntries" [(ngModel)]="entriesPerPage">
+        <option *ngFor="let n of [10,25,50,100]">{{ n }}</option>
+      </select>
+      <span>entries</span>
+    </div>
+    <div class="search">
+      <label for="searchInput">Tìm kiếm:</label>
+      <input type="search" id="searchInput" [(ngModel)]="searchTerm" (input)="onSearch()" />
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Tên người dùng</th>
+          <th>Role</th>
+          <th>Active</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of filteredUsers">
+          <td>{{ user.username }}</td>
+          <td>{{ user.role }}</td>
+          <td class="status-cell" [class.is-active]="user.isActive" [class.is-inactive]="!user.isActive">{{ user.isActive ? '✔' : '✖' }}</td>
+        </tr>
+        
+        <tr>
+          <th>Tên người dùng</th>
+          <th>Role</th>
+          <th>Active</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info">
+    Hiển thị từ {{ start + 1 }} đến {{ end }} trong tổng số {{ total }} người dùng
+  </div>
+
+  <div class="pagination">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+    <button *ngFor="let page of totalPagesArray" (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</button>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+</div>

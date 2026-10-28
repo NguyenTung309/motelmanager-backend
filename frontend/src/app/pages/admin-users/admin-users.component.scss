@@ -1,0 +1,11 @@
+.status-cell {
+  font-weight: 700;
+}
+
+.status-cell.is-active {
+  color: var(--theme-success-contrast);
+}
+
+.status-cell.is-inactive {
+  color: var(--theme-primary);
+}

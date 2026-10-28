@@ -1,0 +1,25 @@
+<div class="room-detail-container">
+  <h2>Chi tiết phòng trọ</h2>
+
+  <div *ngIf="error" class="error-message">{{ error }}</div>
+
+  <div *ngIf="room" class="room-card">
+    <div class="room-field">
+      <h2 class="room-title">{{ room.title }}</h2>
+    </div>
+    <div class="room-field">
+      <span class="label">Địa chỉ:</span> {{ room.address }}
+    </div>
+    <div class="room-field">
+      <span class="label">Giá:</span> {{ room.price | number }} VND
+    </div>
+    <div class="room-field">
+      <span class="label">Mô tả:</span> {{ room.description }}
+    </div>
+    <div class="room-field">
+      <span class="label">Chủ trọ:</span> {{ room.owner?.username }}
+    </div>
+
+    <button class="back-button" (click)="goBack()">← Quay lại</button>
+  </div>
+</div>

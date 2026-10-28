@@ -1,0 +1,27 @@
+<div class="main-layout">
+  <header class="header">
+    <div class="header-left">
+      <h1 class="logo">
+        <a routerLink="/home">🏠 Motel Finder</a>
+      </h1>
+    </div>
+
+    <nav class="nav-links" *ngIf="auth.isLoggedIn()">
+      <a routerLink="/home">Trang chủ</a>
+
+      <a *ngIf="auth.getRole() === 'admin'" routerLink="/admin/users">Quản lý User</a>
+      <a *ngIf="auth.getRole() === 'admin'" routerLink="/admin/register-requests">Duyệt đăng ký</a>
+
+      <a *ngIf="auth.getRole() === 'owner'" routerLink="/owner/rooms">Quản lý phòng trọ</a>
+
+      <a *ngIf="auth.getRole() === 'student'" routerLink="/student/rooms">Tìm phòng trọ</a>
+
+      <button class="logout-btn" (click)="logout()">Đăng xuất</button>
+    </nav>
+    
+  </header>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

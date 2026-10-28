@@ -1,0 +1,37 @@
+<h2>Đăng bài mới</h2>
+
+<form [formGroup]="roomForm" (ngSubmit)="onSubmit()" class="form">
+  <div class="form-group">
+    <label for="title">Tiêu đề</label>
+    <input id="title" formControlName="title" type="text" />
+  <div class="error" *ngIf="roomForm.get('title')?.invalid && (roomForm.get('title')?.touched || roomForm.get('title')?.dirty)">
+    Tiêu đề là bắt buộc.
+  </div>
+  </div>
+
+  <div class="form-group">
+    <label for="address">Địa chỉ</label>
+    <input id="address" formControlName="address" type="text" />
+  <div class="error" *ngIf="roomForm.get('address')?.invalid && (roomForm.get('address')?.touched || roomForm.get('address')?.dirty)">
+    Địa chỉ là bắt buộc.
+  </div>
+  </div>
+
+  <div class="form-group">
+    <label for="price">Giá</label>
+    <input id="price" formControlName="price" type="number" />
+  <div class="error" *ngIf="roomForm.get('price')?.invalid && (roomForm.get('price')?.touched || roomForm.get('price')?.dirty)">
+    Giá phải lớn hơn 1000.
+  </div>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Mô tả</label>
+    <textarea id="description" formControlName="description"></textarea>
+  </div>
+
+  <button type="submit">Đăng bài</button>
+
+  <div *ngIf="error" class="error-message">{{ error }}</div>
+  <div *ngIf="success" class="success-message">{{ success }}</div>
+</form>

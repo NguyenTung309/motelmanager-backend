@@ -1,0 +1,39 @@
+<h2>Danh sách phòng trọ</h2>
+
+<!-- Thông báo lỗi -->
+<div *ngIf="error" class="error-message">{{ error }}</div>
+
+<!-- Form tìm kiếm -->
+<form (ngSubmit)="search()" class="search-form">
+  <input [(ngModel)]="district" name="district" placeholder="Địa chỉ" />
+  <input [(ngModel)]="minPrice" name="minPrice" type="number" placeholder="Giá từ" min="0" />
+  <input [(ngModel)]="maxPrice" name="maxPrice" type="number" placeholder="Giá đến" min="0" />
+  <button type="submit">Tìm kiếm</button>
+</form>
+
+<!-- Bảng kết quả -->
+<table *ngIf="rooms.length > 0" class="room-table">
+  <thead>
+    <tr>
+      <th>Tiêu đề</th>
+      <th>Địa chỉ</th>
+      <th>Giá</th>
+      <th>Mô tả</th>
+      <th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let room of rooms">
+      <td>{{ room.title }}</td>
+      <td>{{ room.address }}</td>
+      <td>{{ room.price | number }}</td>
+      <td>{{ room.description }}</td>
+      <td><button (click)="viewDetail(room.id)">Xem chi tiết</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Nếu không có kết quả -->
+<div *ngIf="rooms.length === 0 && !error" class="no-results">
+  Không tìm thấy phòng phù hợp.
+</div>

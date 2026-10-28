@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="title">Danh sách đơn đăng ký</div>
+
+  <div class="controls">
+    <div class="show-entries">
+      <label for="showEntries">Hiển thị</label>
+      <select id="showEntries" [(ngModel)]="entriesPerPage">
+        <option *ngFor="let n of [10,25,50,100]">{{ n }}</option>
+      </select>
+      <span>bản ghi</span>
+    </div>
+    <div class="search">
+      <label for="searchInput">Tìm kiếm:</label>
+      <input type="search" id="searchInput" [(ngModel)]="searchTerm" (input)="onSearch()" />
+    </div>
+  </div>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <div *ngIf="success" class="success">{{ success }}</div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Tên người dùng</th>
+          <th>Quyền</th>
+          <th>Ngày tạo</th>
+          <th>Duyệt</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let req of pagedRequests">
+          <td>{{ req.username }}</td>
+          <td>{{ req.role }}</td>
+          <td>{{ req.createdAt | date: 'short' }}</td>
+          <td>
+            <button (click)="approve(req.id)" [disabled]="req.isApproved"  class="approve-button">
+              {{ req.isApproved ? 'Đã duyệt' : 'Duyệt' }}
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <th>Tên người dùng</th>
+          <th>Quyền</th>
+          <th>Ngày tạo</th>
+          <th>Duyệt</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info">
+    Hiển thị từ {{ start + 1 }} đến {{ end }} trong tổng số {{ total }} đơn đăng ký
+  </div>
+
+  <div class="pagination">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Trước</button>
+    <button *ngFor="let page of totalPagesArray" (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</button>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Sau</button>
+  </div>
+</div>

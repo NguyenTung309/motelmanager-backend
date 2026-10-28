@@ -1,0 +1,77 @@
+.auth-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 30px;
+  background-color: var(--theme-surface);
+  border-radius: 10px;
+  border: 1px solid var(--theme-border);
+  box-shadow: 0 16px 34px var(--theme-shadow);
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--theme-primary-dark);
+  }
+
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+
+  .error {
+    color: var(--theme-danger-strong);
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  .success {
+    color: var(--theme-success-contrast);
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    background-color: var(--theme-accent);
+    color: var(--theme-primary-dark);
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: var(--theme-primary);
+      color: var(--theme-surface-strong);
+    }
+  }
+
+  p {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--theme-text-muted);
+
+    a {
+      color: var(--theme-primary-dark);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

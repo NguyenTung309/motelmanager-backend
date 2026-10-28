@@ -1,0 +1,40 @@
+<div class="container">
+  <h2>Chỉnh sửa bài đăng</h2>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <form [formGroup]="roomForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">Tiêu đề</label>
+      <input id="title" formControlName="title" />
+  <div class="error" *ngIf="roomForm.get('title')?.invalid && (roomForm.get('title')?.touched || roomForm.get('title')?.dirty)">
+    Tiêu đề là bắt buộc.
+  </div>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Địa chỉ</label>
+      <input id="address" formControlName="address" />
+  <div class="error" *ngIf="roomForm.get('address')?.invalid && (roomForm.get('address')?.touched || roomForm.get('address')?.dirty)">
+    Địa chỉ là bắt buộc.
+  </div>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Giá</label>
+      <input type="number" id="price" formControlName="price" />
+  <div class="error" *ngIf="roomForm.get('price')?.invalid && (roomForm.get('price')?.touched || roomForm.get('price')?.dirty)">
+    Giá phải lớn hơn 1000.
+  </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Mô tả</label>
+      <textarea id="description" formControlName="description"></textarea>
+    </div>
+
+    <div class="form-buttons">
+      <button type="submit" [disabled]="roomForm.invalid">Lưu thay đổi</button>
+      <button type="button" (click)="router.navigate(['/owner/rooms'])">Hủy</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,69 @@
+.room-card {
+  background-color: var(--theme-surface);
+  border: 1px solid var(--theme-border);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 14px 30px var(--theme-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center all child divs (fields) */
+}
+
+.room-field {
+  width: 100%;
+  max-width: 400px; /* limit the content width */
+  text-align: left; /* align text inside each field to the left */
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: var(--theme-text-muted);
+}
+
+.label {
+  font-weight: 600;
+  color: var(--theme-text);
+  display: inline-block;
+  width: 100px;
+}
+
+.room-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 24px;
+  color: var(--theme-primary-dark);
+}
+
+.back-button {
+  margin-top: 20px;
+  padding: 10px 16px;
+  background-color: var(--theme-primary);
+  color: var(--theme-surface-strong);
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: var(--theme-primary-dark);
+}
+
+.room-detail-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--theme-text);
+}
+
+.error-message {
+  color: var(--theme-danger-strong);
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}

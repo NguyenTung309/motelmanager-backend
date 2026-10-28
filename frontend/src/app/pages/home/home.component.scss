@@ -1,0 +1,59 @@
+.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, var(--theme-primary-dark), var(--theme-primary) 58%, var(--theme-accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--theme-bg);
+  text-align: center;
+  padding: 0 20px;
+}
+
+.content h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.welcome h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 24px;
+  background-color: var(--theme-bg);
+  color: var(--theme-primary-dark);
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+  box-shadow: 0 10px 22px rgba(38, 59, 106, 0.18);
+}
+
+.btn:hover {
+  background-color: var(--theme-accent);
+}
+
+.btn.outline {
+  background-color: transparent;
+  color: var(--theme-bg);
+  border: 2px solid rgba(238, 250, 189, 0.8);
+}
+
+.btn.outline:hover {
+  background-color: rgba(238, 250, 189, 0.12);
+}

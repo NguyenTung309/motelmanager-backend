@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="title">Quản lý bài đăng của bạn</div>
+
+  <div class="controls">
+    <div class="show-entries">
+      <label for="showEntries">Hiển thị</label>
+      <select id="showEntries" [(ngModel)]="entriesPerPage">
+        <option *ngFor="let n of [10, 25, 50, 100]">{{ n }}</option>
+      </select>
+      <span>bài</span>
+    </div>
+    <div class="search">
+      <label for="searchInput">Tìm kiếm:</label>
+      <input type="search" id="searchInput" [(ngModel)]="searchTerm" (input)="onSearch()" />
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Tiêu đề</th>
+          <th>Địa chỉ</th>
+          <th>Giá</th>
+          <th>Mô tả</th>
+          <th>Hành động</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let room of filteredRooms">
+          <td>{{ room.title }}</td>
+          <td>{{ room.address }}</td>
+          <td>{{ room.price | number }}</td>
+          <td>{{ room.description }}</td>
+          <td>
+            <button (click)="router.navigate(['/owner/edit', room.id])">Sửa</button>
+            <button (click)="deleteRoom(room.id)">Xóa</button>
+          </td>
+        </tr>
+        <tr>
+          <th>Tiêu đề</th>
+          <th>Địa chỉ</th>
+          <th>Giá</th>
+          <th>Mô tả</th>
+          <th>Hành động</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info">
+    Hiển thị từ {{ start + 1 }} đến {{ end }} trong tổng số {{ total }} bài đăng
+  </div>
+
+  <div class="pagination">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+    <button *ngFor="let page of totalPagesArray" (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</button>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+
+  <button (click)="router.navigate(['/owner/create'])">Đăng bài mới</button>
+</div>

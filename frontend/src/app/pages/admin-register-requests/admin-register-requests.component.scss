@@ -1,0 +1,31 @@
+.approve-button {
+  font-size: 12px;
+  padding: 4px 8px;
+  background-color: var(--theme-accent);
+  color: var(--theme-primary-dark);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.approve-button:hover:not(:disabled) {
+  background-color: var(--theme-primary);
+  color: var(--theme-surface-strong);
+}
+
+.approve-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.error {
+  color: var(--theme-danger-strong);
+  font-weight: bold;
+}
+
+.success {
+  color: var(--theme-success-contrast);
+  font-weight: bold;
+}

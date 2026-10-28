@@ -1,0 +1,315 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --theme-bg: #eefabd;
+  --theme-bg-soft: #f7fce0;
+  --theme-surface: rgba(255, 255, 255, 0.82);
+  --theme-surface-strong: #ffffff;
+  --theme-accent: #a0d585;
+  --theme-primary: #6984a9;
+  --theme-primary-dark: #263b6a;
+  --theme-text: #263b6a;
+  --theme-text-muted: #5f7698;
+  --theme-border: rgba(38, 59, 106, 0.18);
+  --theme-border-strong: rgba(38, 59, 106, 0.32);
+  --theme-shadow: rgba(38, 59, 106, 0.14);
+  --theme-success-contrast: #263b6a;
+  --theme-danger-strong: #263b6a;
+  --theme-disabled-bg: rgba(105, 132, 169, 0.2);
+  --theme-disabled-text: rgba(38, 59, 106, 0.55);
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background:
+    radial-gradient(circle at top, rgba(160, 213, 133, 0.28), transparent 32%),
+    linear-gradient(180deg, var(--theme-bg) 0%, var(--theme-bg-soft) 56%, #ffffff 100%);
+  color: var(--theme-text);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--theme-primary-dark);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  color: var(--theme-text);
+  border: 1px solid var(--theme-border-strong);
+  background-color: rgba(255, 255, 255, 0.92);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--theme-primary);
+  box-shadow: 0 0 0 3px rgba(105, 132, 169, 0.18);
+  outline: none;
+}
+
+button {
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  background-color: var(--theme-disabled-bg);
+  color: var(--theme-disabled-text);
+  cursor: not-allowed;
+}
+
+app-admin-users,
+app-admin-register-requests,
+app-owner-rooms {
+  display: block;
+  color: var(--theme-text);
+}
+
+app-admin-users .container,
+app-admin-register-requests .container,
+app-owner-rooms .container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+app-admin-users .title,
+app-admin-register-requests .title,
+app-owner-rooms .title {
+  color: var(--theme-primary-dark);
+  margin-bottom: 8px;
+}
+
+app-admin-users .description,
+app-admin-register-requests .description,
+app-owner-rooms .description {
+  color: var(--theme-text-muted);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+app-admin-users .controls,
+app-admin-register-requests .controls,
+app-owner-rooms .controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+app-admin-users .show-entries,
+app-admin-users .search,
+app-admin-register-requests .show-entries,
+app-admin-register-requests .search,
+app-owner-rooms .show-entries,
+app-owner-rooms .search {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--theme-text);
+}
+
+app-admin-users select,
+app-admin-users input[type="search"],
+app-admin-register-requests select,
+app-admin-register-requests input[type="search"],
+app-owner-rooms select,
+app-owner-rooms input[type="search"] {
+  font-size: 12px;
+  padding: 2px 6px;
+  border: 1px solid var(--theme-border-strong);
+  border-radius: 3px;
+  outline: none;
+}
+
+app-admin-users select:focus,
+app-admin-users input[type="search"]:focus,
+app-admin-register-requests select:focus,
+app-admin-register-requests input[type="search"]:focus,
+app-owner-rooms select:focus,
+app-owner-rooms input[type="search"]:focus {
+  border-color: var(--theme-primary);
+  box-shadow: 0 0 0 1px var(--theme-primary);
+}
+
+app-admin-users input[type="search"],
+app-admin-register-requests input[type="search"],
+app-owner-rooms input[type="search"] {
+  width: 120px;
+}
+
+app-admin-users .table-wrapper,
+app-admin-register-requests .table-wrapper,
+app-owner-rooms .table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--theme-border);
+  border-radius: 3px;
+  background-color: var(--theme-surface);
+}
+
+app-admin-users table,
+app-admin-register-requests table,
+app-owner-rooms table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 700px;
+  font-size: 12px;
+  color: var(--theme-text);
+  text-align: left;
+}
+
+app-admin-users thead,
+app-admin-register-requests thead,
+app-owner-rooms thead {
+  background-color: var(--theme-bg-soft);
+}
+
+app-admin-users th,
+app-admin-users td,
+app-admin-register-requests th,
+app-admin-register-requests td,
+app-owner-rooms th,
+app-owner-rooms td {
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--theme-border);
+  vertical-align: middle;
+}
+
+app-admin-users th,
+app-admin-register-requests th,
+app-owner-rooms th {
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+app-admin-users th .sort-icon,
+app-admin-register-requests th .sort-icon,
+app-owner-rooms th .sort-icon {
+  font-size: 8px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+app-admin-users th .sort-up,
+app-admin-register-requests th .sort-up,
+app-owner-rooms th .sort-up {
+  color: var(--theme-primary);
+}
+
+app-admin-users th .sort,
+app-admin-register-requests th .sort,
+app-owner-rooms th .sort {
+  color: var(--theme-border-strong);
+}
+
+app-admin-users tbody tr:nth-child(even),
+app-admin-register-requests tbody tr:nth-child(even),
+app-owner-rooms tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+app-admin-users tbody tr:nth-child(odd),
+app-admin-register-requests tbody tr:nth-child(odd),
+app-owner-rooms tbody tr:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.72);
+}
+
+app-admin-users tbody tr:last-child,
+app-admin-register-requests tbody tr:last-child,
+app-owner-rooms tbody tr:last-child {
+  font-weight: 600;
+  background-color: rgba(238, 250, 189, 0.6);
+}
+
+app-admin-users .info,
+app-admin-register-requests .info,
+app-owner-rooms .info {
+  margin-top: 8px;
+  font-size: 10px;
+  color: var(--theme-text-muted);
+}
+
+app-admin-users .pagination,
+app-admin-register-requests .pagination,
+app-owner-rooms .pagination {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+  font-size: 12px;
+}
+
+app-admin-users .pagination button,
+app-admin-register-requests .pagination button,
+app-owner-rooms .pagination button {
+  border: 1px solid var(--theme-border-strong);
+  background-color: rgba(255, 255, 255, 0.92);
+  color: var(--theme-text);
+  padding: 4px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  user-select: none;
+}
+
+app-admin-users .pagination button:hover,
+app-admin-register-requests .pagination button:hover,
+app-owner-rooms .pagination button:hover {
+  background-color: var(--theme-bg-soft);
+}
+
+app-admin-users .pagination .active,
+app-admin-register-requests .pagination .active,
+app-owner-rooms .pagination .active {
+  background-color: var(--theme-primary);
+  color: var(--theme-surface-strong);
+  border-color: var(--theme-primary);
+  cursor: default;
+}
+
+@media (max-width: 640px) {
+  app-admin-users .controls,
+  app-admin-register-requests .controls,
+  app-owner-rooms .controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  app-admin-users .search input[type="search"],
+  app-admin-register-requests .search input[type="search"],
+  app-owner-rooms .search input[type="search"] {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  app-admin-users table,
+  app-admin-register-requests table,
+  app-owner-rooms table {
+    min-width: 600px;
+  }
+}
